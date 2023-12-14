@@ -10,14 +10,14 @@ def main(page, lv):
     int_input = ft.TextField(
         input_filter=ft.InputFilter(
             allow=True,
-            regex_string=r"^0*(?:[1-9][0-9]?|64)$",
+            regex_string=r"[0-9]",
             replacement_string=""
         )
     )
 
     def generate_number(number: int):
         while True:
-            prime_number = (int(str(random_my.random(11**(number+1)))[:-1]))
+            prime_number = int(str(random_my.random(11**(number+1)))[:-1])
             if not is_prime(prime_number):
                 lv.controls.append(
                     ft.Text(

@@ -5,6 +5,7 @@ import check_number_is_prime
 import create_private_public_key
 import encryption_and_decryption
 import generate_prime_number
+import sending_receiving
 
 
 def main(page: Page):
@@ -60,6 +61,9 @@ def main(page: Page):
         lv=lv
     )
 
+    sending_button = sending_receiving.sending(page=page, lv=lv)
+    receiving_button = sending_receiving.receiving(page=page, lv=lv)
+
     header = ft.Container(
         content=ft.Column(
             spacing=10,
@@ -75,6 +79,12 @@ def main(page: Page):
                     controls=[
                         generate_message_button,
                         random_sequence_bits_button
+                    ]
+                ),
+                ft.Row(
+                    controls=[
+                        sending_button,
+                        receiving_button
                     ]
                 ),
                 ft.Row(

@@ -1,3 +1,6 @@
+from _decimal import Decimal
+
+
 def gen_random(seed, seed2, i):
     state1 = seed
     state2 = seed2
@@ -32,4 +35,8 @@ def random(bound):
     reversed_l = [int(str(p)[::-1]) for p in randoms]
     ordered = sorted(list(reversed_l))
     pos = ordered.index(int(str(t)[::-1]))
-    return int(pos/len(randoms) * bound)
+
+    rand_num = int(pos/len(randoms) * bound)
+    if rand_num:
+        return int(pos/len(randoms) * bound)
+    return random(bound)

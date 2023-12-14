@@ -56,7 +56,7 @@ def main(page, lv):
         public_keys, private_keys = get_keys(int(int_input_n.value), int(int_input_k.value))
         lv.controls.append(
             ft.Text(
-                f"Ваш публичный ключ public_keys: {public_keys} \n Ваш Приватный ключ private_keys: {private_keys}",
+                f"Ваш открытый ключ public_keys: {public_keys} \n Ваш закрытый ключ private_keys: {private_keys}",
                 selectable=True
             )
         )
@@ -86,4 +86,4 @@ def main(page, lv):
         dlg_modal.open = True
         page.update()
 
-    return ElevatedButton(text="Сгенерировать приватный и публичный ключ", on_click=open_dlg_modal)
+    return ElevatedButton(text="Сгенерировать открытый и закрытый ключ", on_click=open_dlg_modal)

@@ -11,12 +11,7 @@ from random_my import random
 
 
 def generate_message(page, lv):
-    int_input_r = ft.TextField(
-        input_filter=ft.InputFilter(
-            allow=True,
-            regex_string=r"[0-9]",
-            replacement_string=""
-        ),
+    str_input_r = ft.TextField(
         label='Сообщение для шифрование r'
     )
 
@@ -31,9 +26,9 @@ def generate_message(page, lv):
 
     def confirm_button(e):
         close_dlg(e)
-        lv.controls.append(ft.Text(f"Закодированное сообщение X {(int(int_input_r.value)**2) % int(int_input_n.value)}", selectable=True))
+        lv.controls.append(ft.Text(f"Закодированное сообщение X {(int(hash(str_input_r.value))**2) % int(int_input_n.value)}", selectable=True))
         page.update()
-        int_input_r.value = None
+        str_input_r.value = None
         int_input_n.value = None
         page.update()
 
@@ -41,7 +36,7 @@ def generate_message(page, lv):
         dlg_modal.open = False
         page.update()
 
-    inputs_column = ft.Column(spacing=10, controls=[int_input_r, int_input_n])
+    inputs_column = ft.Column(spacing=10, controls=[str_input_r, int_input_n])
 
     dlg_modal = ft.AlertDialog(
         modal=True,
@@ -104,11 +99,6 @@ def random_sequence_bits(page, lv):
 
 def encryption(page, lv):
     int_input_r = ft.TextField(
-        input_filter=ft.InputFilter(
-            allow=True,
-            regex_string=r"[0-9]",
-            replacement_string=""
-        ),
         label='Сообщение для шифрование r'
     )
 
@@ -131,7 +121,7 @@ def encryption(page, lv):
 
     def confirm_button(e):
         close_dlg(e)
-        lv.controls.append(ft.Text(f"Зашифрованное сообщение {(int(int_input_r.value) * multiplication_numbers(list(map(int, int_input_s.value.split(','))), list(map(int, int_input_e_list.value.split(','))))) % int(int_input_n.value)}", selectable=True))
+        lv.controls.append(ft.Text(f"Зашифрованное сообщение {(int(hash(int_input_r.value)) * multiplication_numbers(list(map(int, int_input_s.value.split(','))), list(map(int, int_input_e_list.value.split(','))))) % int(int_input_n.value)}", selectable=True))
         page.update()
         int_input_r.value = None
         int_input_s.value = None
