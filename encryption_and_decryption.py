@@ -21,7 +21,7 @@ def generate_message(page, lv):
             regex_string=r"[0-9]",
             replacement_string=""
         ),
-        label='Введите публичный глобальный ключ n = p * q'
+        label='Введите открытый глобальный ключ n = p * q'
     )
 
     def confirm_button(e):
@@ -40,7 +40,7 @@ def generate_message(page, lv):
 
     dlg_modal = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Введите сообщение для шифрования r и публичный глобальный ключ n"),
+        title=ft.Text("Введите сообщение для шифрования r и открытый глобальный ключ n"),
         content=inputs_column,
         actions=[
             ft.TextButton(text="Создать", on_click=confirm_button),
@@ -116,7 +116,7 @@ def encryption(page, lv):
             regex_string=r"[0-9]",
             replacement_string=""
         ),
-        label='Введите публичный глобальный ключ n = p * q'
+        label='Введите открытый глобальный ключ n = p * q'
     )
 
     def confirm_button(e):
@@ -166,7 +166,7 @@ def decryption(page, lv):
     )
 
     int_input_v = ft.TextField(
-        label='Публичный ключ [v]'
+        label='открытый ключ [v]'
     )
 
     int_input_x = ft.TextField(
@@ -188,7 +188,7 @@ def decryption(page, lv):
             regex_string=r"[0-9]",
             replacement_string=""
         ),
-        label='Введите публичный глобальный ключ n = p * q'
+        label='Введите открытый глобальный ключ n = p * q'
     )
 
     def confirm_button(e):
@@ -215,7 +215,7 @@ def decryption(page, lv):
 
     dlg_modal = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Введите сообщение для дешифрование и публичный ключ."),
+        title=ft.Text("Введите сообщение для дешифрование и открытый ключ."),
         content=inputs_column,
         actions=[
             ft.TextButton(text="Расшифровать", on_click=confirm_button),

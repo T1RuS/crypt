@@ -30,7 +30,7 @@ def main(page, lv):
             regex_string=r"[0-9]",
             replacement_string=""
         ),
-        label='Публичное число n'
+        label='Открытое число n'
     )
 
     int_input_k = ft.TextField(
@@ -72,7 +72,7 @@ def main(page, lv):
 
     dlg_modal = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Введите публичное число n = p * q и длину желаемых ключей."),
+        title=ft.Text("Введите открытое число n = p * q и длину желаемых ключей."),
         content=inputs_column,
         actions=[
             ft.TextButton(text="Создать", on_click=confirm_button),
